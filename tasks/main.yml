@@ -8,3 +8,5 @@
   loop:
     - qemu-kvm
     - libvirt-bin
+    - python3-libvirt
+    - python3-lxml
