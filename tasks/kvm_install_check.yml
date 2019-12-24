@@ -1,0 +1,14 @@
+---
+- name: "Install required packages"
+  apt:
+    name: "cpu-checker"
+    state: "present"
+
+- name: "Checking if host supports KVM"
+  command: kvm-ok
+  register: kvm_support
+
+- name: "Stop playbook if server does not support KVM"
+  fail:
+    msg: "Host {{ ansible_hostname }} does not support KVM virtualization"
+  failed_when: kvm_support.rc != 0

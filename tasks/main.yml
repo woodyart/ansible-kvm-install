@@ -1,0 +1,20 @@
+---
+- include: kvm_install_check.yml
+
+- name: "Install KVM packages"
+  apt:
+    name: {{ item }}
+    state: present
+  loop:
+    - qemu-kvm
+    - libvirt-bin
+
+- name: "Allow admin user to manage KVM host"
+  user:
+    name: "{{ item }}"
+    groups: libvirt
+    append: yes
+  loop:
+    - "{{ user.login }}"
+  when:
+    - user.kvmadmin == yes
