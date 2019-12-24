@@ -3,7 +3,7 @@
 
 - name: "Install KVM packages"
   apt:
-    name: {{ item }}
+    name: "{{ item }}"
     state: present
   loop:
     - qemu-kvm
