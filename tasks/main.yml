@@ -10,3 +10,12 @@
     - libvirt-bin
     - python3-libvirt
     - python3-lxml
+    - ebtables
+    - dnsmasq-base
+  register: apt_kvm
+
+- name: Restart Libvirt service
+  service:
+    name: libvirtd
+    state: restarted
+  when: apt_kvm.changed
