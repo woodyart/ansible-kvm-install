@@ -1,6 +1,6 @@
 galaxy_info:
   author: Andrey Dolbilin
-  description: This role install KVM H on host
+  description: This role install KVM on host
   company:
   # issue_tracker_url: http://example.com/issue/tracker
   license: GPLv3
